@@ -43,6 +43,17 @@ let options = {
 const countdownOn = () => {
     startBtn.disabled = true;
     Notify.success('The countdown has started');
+    const timer = setInterval(() => {
+        let endTime = userDate - Date.now();
+        let cd = convertMs(endTime);
+        if (endTime <= 0) {
+            Notify.info("Time's up");
+            clearInterval(timer);
+        } else {
+            clock(cd);
+        }
+    }, 1000);
+    timer();
 }
 
 //
@@ -77,17 +88,6 @@ const clock = (cd) => {
     mins.textContent = cd.minutes;
     secs.textContent = cd.seconds;
 };
-
-const timer = setInterval(() => {
-    let endTime = userDate - Date.now();
-    let cd = convertMs(endTime);
-    if (endTime <= 0) {
-        Notify.info("Time's up");
-        clearInterval(timer);
-    } else {
-        clock(cd);
-    }
-}, 1000);
 
 const addLeadingZero = (val) => {
     return String(val).padStart(2, '0');

@@ -1,4 +1,4 @@
-# GoIT Fullstack Dev Course, JavaScript module - homework 3
+# GoIT Fullstack Dev Course, JavaScript module - homework 4
 ### Live Demo
 https://zuza29.github.io/goit-js-hw-09/
 
